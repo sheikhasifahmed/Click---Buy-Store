@@ -8,10 +8,7 @@ body {
   padding: 5px;
   outline: none;
 } */
-.search-field:hover {
-  /* outline: none; */
-  /* border: none; */
-}
+
 .search-box {
   display: flex;
   justify-content: center;
@@ -30,7 +27,7 @@ body {
 }
 
 .red {
-  color: lightcoral;
+  color: red;
 }
 .green {
   color: green;
@@ -74,10 +71,10 @@ body {
   padding-right: 30px;
 }
 
-#rating-div {
+/* #rating-div {
   display: flex;
-  justify-content: space-evenly;
-}
+  justify-content: center;
+} */
 
 #modal {
   position: fixed;

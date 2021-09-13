@@ -19,6 +19,15 @@ const showProducts = (products) => {
   for (const product of allProducts) {
     const image = product.image;
     const rating = product.rating;
+    const rate = parseInt(rating.rate);
+    console.log(rate);
+    let star = "";
+    for (let i = 0; i < rate; i++) {
+      star += "★";
+    }
+
+    star = star.padEnd(5, "☆");
+
     const category = product.category;
     const div = document.createElement("div");
     div.classList.add("product");
@@ -29,8 +38,8 @@ const showProducts = (products) => {
       <h3>${product.title}</h3>
       <h5>Category: ${category}</h5>
       <div id='rating-div'>
-      <h4 class='red'>Rating: ${rating.rate}</h4>
-      <p>by ${rating.count} people</p>
+      <h4 class='red'>Rating: ${rating.rate} ${star} </h4>
+     <b><p class='ms-2'>by ${rating.count} people</p></b>
       </div>
       <h2 class='green' >Price: $ ${product.price}</h2>
       <button onclick="addToCart(${product.price})" id="addToCart-btn" class="buy-now btn btn-outline-dark">add to cart</button>
