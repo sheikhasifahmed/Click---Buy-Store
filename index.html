@@ -111,7 +111,7 @@
     <!-- modal div created -->
     <div id="modal">
       <div class="d-flex justify-content-end">
-        <button onclick="closeModal()" class="btn btn-outline-dark">❌</button>
+        <button onclick="closeModal()" id="btn-x">✖</button>
       </div>
       <!-- showing details card here  -->
 
@@ -139,7 +139,7 @@
       </div>
     </div>
     <!-- overlay div created -->
-    <div id="overlay"></div>
+    <div id="overlay" onclick="closeModal()"></div>
 
     <footer></footer>
 
