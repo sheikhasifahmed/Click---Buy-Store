@@ -29,6 +29,7 @@ const showProducts = (products) => {
     star = star.padEnd(5, "☆");
 
     const category = product.category;
+    let title = product.title.slice(0, 50);
     const div = document.createElement("div");
     div.classList.add("product");
     div.innerHTML = `<div class="single-product ">
@@ -36,8 +37,8 @@ const showProducts = (products) => {
       <div>
     <img class="product-image" src=${image}></img>
       </div>
-      <h3>${product.title}</h3>
-      <h5>Category: ${category}</h5>
+      <h3>${title}</h3>
+      <h5 style='color:grey;'>Category: ${category}</h5>
       <div id='rating-div'>
       <h4 class='red'> ${star} ${rating.rate}</h4>
      <b><p class='ms-2'>by ${rating.count} people</p></b>
