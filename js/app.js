@@ -20,7 +20,7 @@ const showProducts = (products) => {
     const image = product.image;
     const rating = product.rating;
     const rate = parseInt(rating.rate);
-    console.log(rate);
+
     let star = "";
     for (let i = 0; i < rate; i++) {
       star += "★";
@@ -31,20 +31,23 @@ const showProducts = (products) => {
     const category = product.category;
     const div = document.createElement("div");
     div.classList.add("product");
-    div.innerHTML = `<div class="single-product">
+    div.innerHTML = `<div class="single-product ">
+    <div >
       <div>
     <img class="product-image" src=${image}></img>
       </div>
       <h3>${product.title}</h3>
       <h5>Category: ${category}</h5>
       <div id='rating-div'>
-      <h4 class='red'>Rating: ${rating.rate} ${star} </h4>
+      <h4 class='red'> ${star} ${rating.rate}</h4>
      <b><p class='ms-2'>by ${rating.count} people</p></b>
       </div>
-      <h2 class='green' >Price: $ ${product.price}</h2>
-      <button onclick="addToCart(${product.price})" id="addToCart-btn" class="buy-now btn btn-outline-dark">🛒add to cart</button>
-      <button id="details-btn" class="btn btn-outline-dark" onclick="showDetails ('${product.id}') " >Details</button></div>
+      <h3 class='green'>Price: $${product.price}</h3>
+      <div class='btn-div mt-auto mb-0'>
+      <button onclick="addToCart(${product.price})" id="addToCart-btn" class="buy-now btn">🛒add to cart</button>
+      <button id="details-btn" class="btn"  onclick="showDetails ('${product.id}') " >Details</button></div></div></div>
       `;
+
     document.getElementById("all-products").appendChild(div);
   }
 };
@@ -120,12 +123,20 @@ function showDetails(id) {
   const cardRating = document.getElementById("card-rating");
   const cardCategory = document.getElementById("card-category");
 
+  const rating = select.rating;
+  const rate = parseInt(rating.rate);
+  let star = "";
+  for (let i = 0; i < rate; i++) {
+    star += "★";
+  }
+  star = star.padEnd(5, "☆");
+
   cardPic.setAttribute("src", `${select.image}`);
   cardTitle.innerText = select.title;
   cardCategory.innerText = `category: ${select.category}`;
 
   cardPrice.innerText = `price: $${select.price}`;
-  cardRating.innerText = `Rating: ${select.rating.rate}`;
+  cardRating.innerText = `${star} ${select.rating.rate}`;
 }
 
 // function for closing the model window
