@@ -89,18 +89,6 @@ body {
 #img-div img {
   width: 200px;
 }
-
-#btn-x {
-  background-color: transparent;
-  border: none;
-  font-size: x-large;
-}
-
-#btn-x:hover {
-  background-color: black;
-  color: aliceblue;
-}
-
 #overlay {
   position: fixed;
   top: 0;

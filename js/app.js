@@ -7,14 +7,19 @@ const loadProducts = () => {
 };
 loadProducts();
 
+let tempProduct = [];
+
 // show all product in UI
 const showProducts = (products) => {
   console.log(products);
 
   const allProducts = products.map((pd) => pd);
+  allProducts.forEach((p) => tempProduct.push(p));
+
   for (const product of allProducts) {
     const image = product.image;
     const rating = product.rating;
+    const category = product.category;
     const div = document.createElement("div");
     div.classList.add("product");
     div.innerHTML = `<div class="single-product">
@@ -22,12 +27,12 @@ const showProducts = (products) => {
     <img class="product-image" src=${image}></img>
       </div>
       <h3>${product.title}</h3>
-      <h5>Category: ${product.category}</h5>
+      <h5>Category: ${category}</h5>
       <h4>Rating: ${rating.rate}</h4>
       <p>(${rating.count} persons rated)</p>
       <h2>Price: $ ${product.price}</h2>
       <button onclick="addToCart(${product.price})" id="addToCart-btn" class="buy-now btn btn-outline-success">add to cart</button>
-      <button id="details-btn" class="btn btn-outline-primary" onclick="showDetails ('${product.image}','${product.title}','${product.price}','${rating.rate}')" >Details</button></div>
+      <button id="details-btn" class="btn btn-outline-primary" onclick="showDetails ('${product.id}') " >Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
@@ -87,27 +92,32 @@ const updateTotal = () => {
   document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
 
-function showDetails(image, title, price, rating) {
+// function for showing details by clicking details button
+
+function showDetails(id) {
   const modal = document.getElementById("modal");
   const overlay = document.getElementById("overlay");
 
   modal.style.display = "block";
   overlay.style.display = "block";
 
+  let select = tempProduct.find((p) => p.id == id);
+
   const cardTitle = document.getElementById("card-title");
   const cardPic = document.getElementById("card-pic");
   const cardPrice = document.getElementById("card-price");
   const cardRating = document.getElementById("card-rating");
+  const cardCategory = document.getElementById("card-category");
 
-  cardPic.setAttribute("src", `${image}`);
-  cardTitle.innerText = title;
-  // cardBody.innerText = `category:${category}
-  // rating: ${rating}
-  // price: ${price}`;
+  cardPic.setAttribute("src", `${select.image}`);
+  cardTitle.innerText = select.title;
+  cardCategory.innerText = `category: ${select.category}`;
 
-  cardPrice.innerText = `price: $${price}`;
-  cardRating.innerText = `Rating: ${rating}`;
+  cardPrice.innerText = `price: $${select.price}`;
+  cardRating.innerText = `Rating: ${select.rating.rate}`;
 }
+
+// function for closing the model window
 
 function closeModal() {
   const modal = document.getElementById("modal");
