@@ -99,9 +99,7 @@
               </tbody>
             </table>
             <div class="parces text-center">
-              <button class="btn btn-outline-primary text-center">
-                Buy Now
-              </button>
+              <button class="btn btn-outline-dark text-center">Buy Now</button>
             </div>
           </div>
         </div>
@@ -111,7 +109,13 @@
     <!-- modal div created -->
     <div id="modal">
       <div class="d-flex justify-content-end">
-        <button onclick="closeModal()" class="btn btn-outline-dark">✖</button>
+        <button
+          onclick="closeModal()"
+          class="btn btn-outline-dark"
+          style="border: none"
+        >
+          ✖
+        </button>
       </div>
       <!-- showing details card here  -->
 
@@ -130,7 +134,7 @@
           <h2 id="card-title" class="card-title">Card title</h2>
           <h4 id="card-category"></h4>
           <h4 id="card-rating" style="color: red"></h4>
-          <h3 id="card-price" class="mt-5"></h3>
+          <h3 id="card-price" class="green mt-5"></h3>
         </div>
       </div>
       <div class="d-flex justify-content-center mb-2">

@@ -29,6 +29,13 @@ body {
   width: 50%;
 }
 
+.red {
+  color: lightcoral;
+}
+.green {
+  color: green;
+}
+
 #all-products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
