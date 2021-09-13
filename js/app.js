@@ -131,9 +131,9 @@ function showDetails(id) {
     star += "★";
   }
   star = star.padEnd(5, "☆");
-
+  let title = select.title.slice(0, 50);
   cardPic.setAttribute("src", `${select.image}`);
-  cardTitle.innerText = select.title;
+  cardTitle.innerText = title;
   cardCategory.innerText = `category: ${select.category}`;
 
   cardPrice.innerText = `price: $${select.price}`;
