@@ -74,6 +74,11 @@ body {
   padding-right: 30px;
 }
 
+#rating-div {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 #modal {
   position: fixed;
   top: 50%;

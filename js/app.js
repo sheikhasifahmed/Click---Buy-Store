@@ -28,8 +28,10 @@ const showProducts = (products) => {
       </div>
       <h3>${product.title}</h3>
       <h5>Category: ${category}</h5>
+      <div id='rating-div'>
       <h4 class='red'>Rating: ${rating.rate}</h4>
-      <h5>(${rating.count} persons rated)</h5>
+      <p>by ${rating.count} people</p>
+      </div>
       <h2 class='green' >Price: $ ${product.price}</h2>
       <button onclick="addToCart(${product.price})" id="addToCart-btn" class="buy-now btn btn-outline-dark">add to cart</button>
       <button id="details-btn" class="btn btn-outline-dark" onclick="showDetails ('${product.id}') " >Details</button></div>
